@@ -16,7 +16,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Run AuraSpanse
         run: node auraspanse-runner.js
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura-logs
+          path: "*.json"
